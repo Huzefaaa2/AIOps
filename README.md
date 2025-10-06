@@ -13,6 +13,8 @@ The implementation is designed to accompany *Edition 26* of the
 developers and solution architects a working example of a virtual SRE
 agent that can be deployed to the Azure cloud.
 
+Wiki: https://github.com/Huzefaaa2/AIOps/wiki
+
 ## Repository structure
 
 ```
