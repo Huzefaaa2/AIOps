@@ -1,0 +1,114 @@
+{
+  "$schema": "https://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "msteams": { "width": "Full" },
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "RCA: {{incident_title}}",
+      "wrap": true,
+      "size": "Large",
+      "weight": "Bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Environment: {{environment}} • Severity: {{severity}} • Started: {{start_time_local}}",
+      "wrap": true,
+      "spacing": "Small",
+      "isSubtle": true
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        { "title": "Incident ID", "value": "{{incident_id}}" },
+        { "title": "Service", "value": "{{service_name}}" },
+        { "title": "Region", "value": "{{region}}" },
+        { "title": "Change Correlation", "value": "{{change_ref}}" }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Suspected Root Cause",
+      "weight": "Bolder",
+      "spacing": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "{{rca_summary}}",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Signals Considered",
+      "weight": "Bolder",
+      "spacing": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "- Metrics: {{metrics_summary}}\n- Logs: {{logs_summary}}\n- Incidents: {{kb_hit_titles}}\n- Config/Runbook: {{config_refs}}",
+      "wrap": true,
+      "spacing": "Small"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Actions Executed",
+      "weight": "Bolder",
+      "spacing": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "• {{action_1}}\n• {{action_2}}\n• {{action_3}}",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "KQL & Evidence",
+      "weight": "Bolder",
+      "spacing": "Medium"
+    },
+    {
+      "type": "RichTextBlock",
+      "inlines": [
+        { "type": "TextRun", "text": "KQL:", "weight": "Bolder" },
+        { "type": "TextRun", "text": " {{kql_name}}", "isSubtle": true }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "{{kql_snippet}}",
+      "wrap": true,
+      "spacing": "Small",
+      "fontType": "Monospace"
+    },
+    {
+      "type": "RichTextBlock",
+      "inlines": [
+        { "type": "TextRun", "text": "Evidence:", "weight": "Bolder" },
+        { "type": "TextRun", "text": " {{evidence_links}}", "isSubtle": true }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.OpenUrl",
+      "title": "View Dashboard",
+      "url": "{{dashboard_url}}"
+    },
+    {
+      "type": "Action.OpenUrl",
+      "title": "Open Incident",
+      "url": "{{incident_url}}"
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Approve Permanent Fix",
+      "data": { "action": "approve_permanent_fix", "incident_id": "{{incident_id}}" }
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Revert Change",
+      "data": { "action": "revert_change", "incident_id": "{{incident_id}}" }
+    }
+  ]
+}
