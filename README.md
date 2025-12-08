@@ -9,7 +9,7 @@ Adaptive Card is included to broadcast root cause analyses and
 recommendations to your operations teams.
 
 The implementation is designed to accompany *Edition 26* of the
-**Dominant Forces in AI** newsletter and is intended to give
+[**Dominant Forces in AI**](https://www.linkedin.com/newsletters/7231479529104371712/) newsletter and is intended to give
 developers and solution architects a working example of a virtual SRE
 agent that can be deployed to the Azure cloud.
 
